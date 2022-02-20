@@ -17,6 +17,15 @@ const questions = [
     "Please enter your email address:"
 ];
 
+const licenses = [
+    'MIT',
+    'Apache-2.0',
+    'GPL-3.0',
+    'LGPL-3.0',
+    'BSD-3-Clause',
+    'GPL-2.0'
+];
+
 // TODO: Create a function to write README file
 function writeToFile(data) {
     return new Promise((resolve, reject) => {
@@ -62,14 +71,7 @@ function init() {
             type: 'list',
             name: 'license',
             message: questions[4],
-            choices: [
-                'MIT License (Expat)',
-                'Apache License 2.0 (Apache-2.0)',
-                'GNU General Public License v3 (GPL-3)',
-                'GNU Lesser General Public License v3 (LGPL-3.0)',
-                'BSD 3-Clause License (Revised)',
-                'GNU General Public License v2.0 (GPL-2.0)'
-            ]
+            choices: licenses
         },
         {
             type: 'input',

@@ -1,39 +1,41 @@
-const generateLicense = (license) => {
-    return ``
-}
-
-const generateBadge = (badge) => {
-    
-}
+const getLicense = require("license");
 
 module.exports = (templateData) => {
-  const {
-    title,
-    description,
-    installation,
-    usage,
-    screenshot,
-    license,
-    contributing,
-    tests,
-    credits,
-    ...questions
-  } = templateData;
+    const {
+        title,
+        description,
+        installation,
+        usage,
+        screenshot,
+        license,
+        contributing,
+        tests,
+        credits,
+        ...questions
+    } = templateData;
 
-  const descriptor = (str) => {
-      if (str.includes(' ')) {
-          const newStr = str.replace(/ /g, '-');
-          return newStr.toLowerCase();
-      } else {
-          return str.toLowerCase();
-      }
-  }
+    const descriptor = (str) => {
+        if (str.includes(' ')) {
+            const newStr = str.replace(/ /g, '-');
+            return newStr.toLowerCase();
+        } else {
+            return str.toLowerCase();
+        }
+    }
 
-  const titleHeading = descriptor(title);
+    const titleHeading = descriptor(title);
 
-  return `# ${title}
+    const generateLicense = (license) => {
+        return getLicense.getLicense(license);
+    }
 
-## 📖 Description
+    const generateBadge = (badge) => {
+
+    }
+
+    return `# ${title}
+
+    ## 📖 Description
 ${description}
 
 ## 📚 Table of Contents
@@ -55,7 +57,7 @@ ${installation}
 ${usage}
 
 ## 🎫 License
-${license}
+${generateLicense(license)}
 
 ## 👋 Contributing
 ${contributing}
