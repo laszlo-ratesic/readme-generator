@@ -118,3 +118,5 @@ init()
     .catch((err) => {
         console.log(err);
     });
+
+// Locate the dropdown menu labeled 'Code' to the left of the About section in the main page of this repository. From there, select your preferred cloning method from HTTPS, SSH, or the GitHub CLI. For this demonstration, we will be using the SSH method. Copy the link and head to your terminal. From the command line you should enter:\n```git clone <INSERT_SSH_KEY_HERE>```\nReplacing the above placeholder with the link copied from GitHub. This will clone the repository into a local directory on your machine. And that's it! Happy Hacking! 🚀
