@@ -23,23 +23,37 @@ module.exports = (templateData) => {
         }
     }
 
-    const titleHeading = descriptor(title);
-
-    const generateLicense = (license) => {
-        return getLicense.getLicense(license);
+    const generateLicense = (license, author) => {
+        return getLicense.getLicense(license, { author: author, year: new Date().getFullYear() });
     }
 
-    const generateBadge = (badge) => {
-
+    const generateBadge = (license) => {
+        if (license === 'MIT') {
+            return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`;
+        } else if (license === 'Apache-2.0') {
+            return `[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)`;
+        } else if (license === 'GPL-3.0') {
+            return `[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)`;
+        } else if (license === 'LGPL-3.0') {
+            return `[![License: LGPL v3](https://img.shields.io/badge/License-LGPL_v3-blue.svg)](https://www.gnu.org/licenses/lgpl-3.0)`;
+        } else if (license === 'BSD-3-Clause') {
+            return `[![License](https://img.shields.io/badge/License-BSD_3--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)`;
+        } else if (license === 'GPL-2.0') {
+            return `[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
+        } else {
+            return `[![License](https://img.shields.io/badge/License-${license}-blue.svg)](https://opensource.org/licenses/${license})`;
+        }
     }
 
     return `# ${title}
 
-    ## 📖 Description
+${generateBadge(license)}
+
+## 📖 Description
 ${description}
 
 ## 📚 Table of Contents
-- [${title}](#${titleHeading})
+- [${title}](#${descriptor(title)})
   - [📖 Description](#-description)
   - [📚 Table of Contents](#-table-of-contents)
   - [🛠️ Installation](#-installation)
@@ -57,7 +71,7 @@ ${installation}
 ${usage}
 
 ## 🎫 License
-${generateLicense(license)}
+${generateLicense(license, questions.fullName)}
 
 ## 👋 Contributing
 ${contributing}

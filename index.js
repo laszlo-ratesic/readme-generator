@@ -14,7 +14,8 @@ const questions = [
     "Please include relevant test instructions",
     "List any collaborators or acknowledgements:",
     "Enter your GitHub username:",
-    "Please enter your email address:"
+    "Please enter your email address:",
+    "Please enter a full name for the copyright:"
 ];
 
 const licenses = [
@@ -97,6 +98,11 @@ function init() {
             type: 'input',
             name: 'email',
             message: questions[9]
+        },
+        {
+            type: 'input',
+            name: 'fullName',
+            message: questions[10]
         }
     ])
 }
