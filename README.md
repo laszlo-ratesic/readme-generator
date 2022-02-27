@@ -35,6 +35,9 @@
    And that's it! Happy Hacking!
 
   ## 👨‍🏫 Usage
+
+  [Link to the walkthrough video!](media/walkthrough.mp4)
+
   This code is strictly for use as a reppelant against the soul-sucking zombified non-life of doing things that are necessary, but ultimately boring and tedious, and is only provided as material for study and otherwise double-checking implementation of various NodeJS, ES6, and command line functionality. Any violations of these use cases will see the offender descended upon by a mob of angry latte-sipping hipsters, forced to attend an ayuhuasca-filled wannabe burning man festival every other year, while simultaneously being chastised by a nice-looking fellow who sort of resembles a young Bob Ross.
 
   ## 🎫 License
